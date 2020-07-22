@@ -1,0 +1,35 @@
+Querying Multiple Tables at Once.
+---------------------------------------
+
+1) Write a query that lists each order number followed by the name of the customer
+who made the order.
+
+-> SELECT ONUM,CNAME FROM ORDERS,CUSTOMERS
+	WHERE CUSTOMERS.CNUM = ORDERS.CNUM;
+
+
+2)Write a query that gives the names of both the salesperson and the customer for
+each order along with the order number.
+
+->SELECT SNAME,CNAME,ONUM FROM ORDERS,CUSTOMERS,SALESPEOPLE
+	WHERE ORDERS.SNUM = CUSTOMERS.SNUM 
+	AND   ORDERS.SNUM = SALESPEOPLE.SNUM;
+
+
+3) Write a query that produces all customers serviced by salespeople with a
+commission above 12%. Output the customer’s name, the salesperson’s name,
+and the salesperson’s rate of commission.
+
+->SELECT CNAME,SNAME,COMM*100 "RATE OF COMM." FROM CUSTOMERS,SALESPEOPLE
+	WHERE CUSTOMERS.SNUM = SALESPEOPLE.SNUM
+	AND COMM > 0.12;
+
+
+4) Write a query that calculates the amount of the salesperson’s commission on each
+order by a customer with a rating above 100.
+
+->SELECT AMT,COMM FROM CUSTOMERS,ORDERS,SALESPEOPLE
+	WHERE CUSTOMERS.SNUM = ORDERS.SNUM
+	AND ORDERS.SNUM = SALESPEOPLE.SNUM
+	AND RATING > 100
+	ORDER BY RATING > 100;
