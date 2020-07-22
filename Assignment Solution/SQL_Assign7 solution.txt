@@ -9,7 +9,8 @@ Summarizing Data with Aggregate Functions.
 2) Write a query that counts the number of different non-NULL city values in the
 Customers table.
 
-->SELECT COUNT(CITY) FROM CUSTOMERS;
+->SELECT COUNT(CITY) FROM CUSTOMERS
+	WHERE CITY IS NOT NULL;
 
 3) Write a query that selects each customer’s smallest order.
 
