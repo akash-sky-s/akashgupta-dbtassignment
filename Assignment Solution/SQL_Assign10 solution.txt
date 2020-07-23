@@ -7,7 +7,8 @@ rows with the order reversed.
 
 ->SELECT N1.SNAME,N2.SNAME,N1.CITY FROM SALESPEOPLE N1,SALESPEOPLE N2
 	WHERE N1.CITY=N2.CITY
-  	AND N1.SNAME < N2.SNAME;
+  	AND N1.SNAME != N2.SNAME
+	GROUP BY CITY;
 
 2) Write a query that produces the names and cities of all customers with the same
 rating as Hoffman.
